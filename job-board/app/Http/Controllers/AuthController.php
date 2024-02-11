@@ -12,9 +12,6 @@ class AuthController extends Controller
         return view('auth.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -33,13 +30,13 @@ class AuthController extends Controller
         }
     }
 
-     public function destroy()
-     {
+    public function destroy()
+    {
         Auth::logout();
 
         request()->session()->invalidate();
         request()->session()->regenerateToken();
 
         return redirect('/');
-     }
+    }
 }

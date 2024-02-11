@@ -16,7 +16,7 @@ class JobApplicationController extends Controller
     public function store(Job $job, Request $request)
     {
         $this->authorize('apply', $job);
-        
+
         $validatedData = $request->validate([
             'expected_salary' => 'required|min:1|max:1000000',
             'cv' => 'required|file|mimes:pdf|max:2048'
